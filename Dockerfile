@@ -1,20 +1,20 @@
 #To build this file:
-#sudo docker build . -t nbutter/cellranger:ubuntu1604
+#sudo docker build . -t sydneyinformaticshub/bposd
 
 #To run this, mounting your current host directory in the container directory,
 # at /project, and excute an example run:
-#sudo docker run -it -v `pwd`:/project nbutter/cellranger:ubuntu1604 /bin/bash -c "cellranger sitecheck > /project/sitecheck.txt"
+#sudo docker run -it -v `pwd`:/project sydneyinformaticshub/bposd /bin/bash -c "python test.py"
 
 #To push to docker hub:
-#sudo docker push nbutter/cellranger:ubuntu1604
+#sudo docker push sydneyinformaticshub/bposd
 
 #To build a singularity container
-#export SINGLUARITY_CACHEDIR=`pwd`
-#export SINGLUARITY_TMPDIR=`pwd`
-#singularity build cellranger.img docker://nbutter/cellranger:ubuntu1604
+#export SINGULARITY_CACHEDIR=`pwd`
+#export SINGULARITY_TMPDIR=`pwd`
+#singularity build bposd.img docker://sydneyinformaticshub/bposd
 
 #To run the singularity image (noting singularity mounts the current folder by default)
-#singularity run --bind /project:/project cellranger.img /bin/bash -c "cd "$PBS_O_WORKDIR" && cellranger sitecheck > sitecheck.txt"
+#singularity run --bind /project:/project bposd.img /bin/bash -c "cd "python test.py"
 
 # Pull base image.
 FROM ubuntu:16.04

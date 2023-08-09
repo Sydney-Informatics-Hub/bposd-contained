@@ -24,13 +24,13 @@ Otherwise here are the full instructions for getting there....
 ## Build with docker
 Check out this repo then build the Docker file.
 ```
-sudo docker build . -t nbutter/cellranger:ubuntu1604
+sudo docker build . -t sydneyinformaticshub/bposd
 ```
 
 ## Run with docker.
 To run this, mounting your current host directory in the container directory, at /project, and execute a run on the test images (that live in the container) run:
 ```
-sudo docker run -it -v `pwd`:/project sydneyinformaticshub/bposd /bin/bash -c "cellranger sitecheck > /project/sitecheck.txt"
+sudo docker run -it -v `pwd`:/project sydneyinformaticshub/bposd /bin/bash -c "python test.py"
 ```
 
 ## Push to docker hub
