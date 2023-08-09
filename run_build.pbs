@@ -3,14 +3,15 @@
 #PBS -P <YOUR_PROJECT>
 #PBS -l select=1:ncpus=2:mem=8gb
 #PBS -l walltime=0:30:00
-#PBS -N job01
+#PBS -N build01
 
 module load singularity
 
 # Assuming you are running this from your project folder.
 cd $PBS_O_WORKDIR
 
+### 1 BUILD IMAGE ###
 export SINGLUARITY_CACHEDIR=`pwd`
 export SINGLUARITY_TMPDIR=`pwd`
 
-singularity run --bind /project:/project bposd.img /bin/bash -c "cd "$PBS_O_WORKDIR" && python test.py"
+singularity build bposd.img docker://sydneyinformaticshub/bposd
